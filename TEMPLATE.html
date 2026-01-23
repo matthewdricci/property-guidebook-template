@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOUR PROPERTY NAME | Guest Guide</title>
+  <meta property="og:title" content="YOUR PROPERTY NAME | Guest Guide">
+  <meta property="og:description" content="Everything you need for your stay - check-in info, house guide, and local recommendations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.com/your-property/">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #faf9f7;
+      padding-bottom: 40px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .hero .subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 16px 0 8px 0;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin-bottom: 12px;
+      color: #555;
+    }
+
+    .card ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .card li {
+      margin-bottom: 6px;
+      color: #555;
+    }
+
+    .card a {
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-decoration-color: #f5c518;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-table td:first-child {
+      font-weight: 500;
+      color: #333;
+      width: 40%;
+    }
+
+    .info-table td:last-child {
+      color: #666;
+    }
+
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #1a1a1a;
+      color: #f5c518;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .highlight-box {
+      background: #fff8e1;
+      border-left: 4px solid #f5c518;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+    }
+
+    .highlight-box.warning {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+    }
+
+    .highlight-box.info {
+      background: #e3f2fd;
+      border-left-color: #1976d2;
+    }
+
+    .emoji {
+      font-size: 1.2rem;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .toc a {
+      background: #fff8e1;
+      color: #1a1a1a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      background: #1a1a1a;
+      color: #f5c518;
+    }
+
+    .book-direct {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .book-direct a {
+      color: #f5c518;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .book-direct a:hover {
+      text-decoration: underline;
+    }
+
+    .book-direct-top {
+      background: #fff8e1;
+      border: 2px solid #f5c518;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .book-direct-top a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .book-direct-top a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 60px 20px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>YOUR PROPERTY NAME</h1>
+  <p class="subtitle">Guest Guide</p>
+</header>
+
+<div class="container">
+
+  <!-- Quick Links - Update anchors to match your sections -->
+  <div class="card">
+    <h2><span class="emoji">📖</span> Quick Links</h2>
+    <div class="toc">
+      <a href="#checkin">Check-In</a>
+      <a href="#parking">Parking</a>
+      <a href="#wifi">Wi-Fi</a>
+      <a href="#rules">House Rules</a>
+      <!-- Add or remove links as needed -->
+    </div>
+  </div>
+
+  <!-- Optional: Direct booking promotion -->
+  <!--
+  <div class="book-direct-top">
+    <p>Welcome! This guide has everything you need for your stay.<br>
+    <strong>Best price guarantee:</strong> <a href="https://your-direct-booking-site.com" target="_blank">Book direct</a> for future visits</p>
+  </div>
+  -->
+
+  <!-- CHECK-IN SECTION -->
+  <div class="card" id="checkin">
+    <h2><span class="emoji">🔑</span> Check-In & Check-Out</h2>
+
+    <table class="info-table">
+      <tr>
+        <td>Check-in</td>
+        <td>4:00 PM</td>
+      </tr>
+      <tr>
+        <td>Check-out</td>
+        <td>11:00 AM</td>
+      </tr>
+    </table>
+
+    <h3>Door Code</h3>
+    <p>Your door code will be sent via your booking platform before arrival.</p>
+    <ol class="steps">
+      <li>Step one of entry process</li>
+      <li>Step two of entry process</li>
+    </ol>
+
+    <h3>Check-Out</h3>
+    <p>Describe your checkout process here.</p>
+  </div>
+
+  <!-- PARKING SECTION -->
+  <div class="card" id="parking">
+    <h2><span class="emoji">🚗</span> Parking</h2>
+    <p>Describe parking situation here.</p>
+    <ul>
+      <li>Number of spots available</li>
+      <li>Any restrictions or notes</li>
+    </ul>
+  </div>
+
+  <!-- SPACE SECTION -->
+  <div class="card" id="space">
+    <h2><span class="emoji">🏠</span> The Space</h2>
+
+    <h3>Bedroom</h3>
+    <p>Describe bedroom(s).</p>
+
+    <h3>Living Room</h3>
+    <p>Describe living area.</p>
+
+    <h3>Kitchen</h3>
+    <p>Describe kitchen and appliances.</p>
+
+    <h3>Bathroom</h3>
+    <p>Describe bathroom(s).</p>
+  </div>
+
+  <!-- WIFI SECTION -->
+  <div class="card" id="wifi">
+    <h2><span class="emoji">📶</span> Wi-Fi</h2>
+    <table class="info-table">
+      <tr>
+        <td>Network</td>
+        <td>YOUR_NETWORK_NAME</td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td>YOUR_PASSWORD</td>
+      </tr>
+    </table>
+    <p>Additional notes about internet speed, remote work setup, etc.</p>
+  </div>
+
+  <!-- CLIMATE SECTION -->
+  <div class="card" id="climate">
+    <h2><span class="emoji">🌡️</span> Climate Control</h2>
+
+    <h3>Heating</h3>
+    <p>Describe heating system and how to use it.</p>
+
+    <h3>Cooling</h3>
+    <p>Describe AC or cooling options.</p>
+  </div>
+
+  <!-- OUTDOOR / AMENITIES SECTION -->
+  <div class="card" id="firepit">
+    <h2><span class="emoji">🔥</span> Outdoor Amenities</h2>
+    <p>Describe fire pit, grill, patio, etc.</p>
+
+    <div class="highlight-box info">
+      <strong>Tip:</strong> Include any usage instructions here.
+    </div>
+  </div>
+
+  <!-- HOUSE RULES SECTION -->
+  <div class="card" id="rules">
+    <h2><span class="emoji">📋</span> House Rules</h2>
+    <ul>
+      <li><strong>No smoking</strong> inside</li>
+      <li><strong>Pets:</strong> Describe pet policy</li>
+      <li><strong>No parties</strong></li>
+      <li><strong>Quiet hours:</strong> 10pm - 8am (if applicable)</li>
+    </ul>
+  </div>
+
+  <!-- TRASH SECTION -->
+  <div class="card">
+    <h2><span class="emoji">🗑️</span> Trash & Recycling</h2>
+    <p>Describe trash procedures, pickup days, bin locations.</p>
+  </div>
+
+  <!-- LOCAL AREA SECTION -->
+  <div class="card" id="area">
+    <h2><span class="emoji">📍</span> Local Area</h2>
+    <p>Brief description of the area and what's nearby.</p>
+
+    <h3>Food & Drink</h3>
+    <ul>
+      <li><strong>Restaurant Name</strong> - Brief description</li>
+      <li><strong>Coffee Shop</strong> - Brief description</li>
+    </ul>
+
+    <h3>Activities</h3>
+    <ul>
+      <li><strong>Hiking Trail</strong> - Distance, difficulty</li>
+      <li><strong>Local Attraction</strong> - Brief description</li>
+    </ul>
+  </div>
+
+  <!-- CAMERAS SECTION (if applicable) -->
+  <div class="card">
+    <h2><span class="emoji">🎥</span> Cameras</h2>
+    <p>Describe any exterior cameras and their purpose. Note that there are no interior cameras.</p>
+  </div>
+
+  <!-- NEED HELP SECTION -->
+  <div class="card">
+    <h2><span class="emoji">🆘</span> Need Help?</h2>
+    <p>Message us through your booking platform for any questions or concerns.</p>
+    <div class="highlight-box warning">
+      <strong>Emergency:</strong> Dial 911
+    </div>
+  </div>
+
+  <!-- Optional: Direct booking footer -->
+  <!--
+  <div class="book-direct">
+    <p>Enjoyed your stay? Book direct next time!</p>
+    <a href="https://your-direct-booking-site.com" target="_blank">your-direct-booking-site.com</a>
+  </div>
+  -->
+
+</div>
+
+</body>
+</html>

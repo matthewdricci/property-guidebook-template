@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campfire Cottage | Guest Guide</title>
+  <meta property="og:title" content="Campfire Cottage | Guest Guide">
+  <meta property="og:description" content="Everything you need for your stay - check-in info, house guide, and local recommendations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://guide.your-domain.com/campfire-cottage/">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #faf9f7;
+      padding-bottom: 40px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .hero .subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 16px 0 8px 0;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin-bottom: 12px;
+      color: #555;
+    }
+
+    .card ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .card li {
+      margin-bottom: 6px;
+      color: #555;
+    }
+
+    .card a {
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-decoration-color: #f5c518;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-table td:first-child {
+      font-weight: 500;
+      color: #333;
+      width: 40%;
+    }
+
+    .info-table td:last-child {
+      color: #666;
+    }
+
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #1a1a1a;
+      color: #f5c518;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .highlight-box {
+      background: #fff8e1;
+      border-left: 4px solid #f5c518;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+    }
+
+    .highlight-box.warning {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+    }
+
+    .highlight-box.info {
+      background: #e3f2fd;
+      border-left-color: #1976d2;
+    }
+
+    .emoji {
+      font-size: 1.2rem;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .toc a {
+      background: #fff8e1;
+      color: #1a1a1a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      background: #1a1a1a;
+      color: #f5c518;
+    }
+
+    .book-direct {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .book-direct a {
+      color: #f5c518;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .book-direct a:hover {
+      text-decoration: underline;
+    }
+
+    .book-direct-top {
+      background: #fff8e1;
+      border: 2px solid #f5c518;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .book-direct-top a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .book-direct-top a:hover {
+      text-decoration: underline;
+    }
+
+    .area-link {
+      display: block;
+      background: #fff8e1;
+      color: #1a1a1a;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    .area-link:hover {
+      background: #1a1a1a;
+      color: #f5c518;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 60px 20px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Campfire Cottage</h1>
+  <p class="subtitle">Guest Guide</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2><span class="emoji">📖</span> Quick Links</h2>
+    <div class="toc">
+      <a href="#checkin">Check-In</a>
+      <a href="#parking">Parking</a>
+      <a href="#firepit">Fire Pit</a>
+      <a href="#climate">Climate</a>
+      <a href="#wifi">Wi-Fi</a>
+      <a href="#rules">House Rules</a>
+    </div>
+  </div>
+
+  <div class="book-direct-top">
+    <p>Welcome! This guide has everything you need for your stay.<br>
+    <strong>Best price guarantee:</strong> <a href="https://your-direct-booking-site.com" target="_blank">Book direct</a> for future visits</p>
+  </div>
+
+  <div class="card" id="checkin">
+    <h2><span class="emoji">🔑</span> Check-In & Check-Out</h2>
+
+    <table class="info-table">
+      <tr>
+        <td>Check-in</td>
+        <td>4:00 PM</td>
+      </tr>
+      <tr>
+        <td>Check-out</td>
+        <td>11:00 AM</td>
+      </tr>
+    </table>
+
+    <div class="highlight-box info">
+      <strong>About check-in time:</strong> The 4pm check-in gives our cleaners a buffer in case they hit any snags with scheduling or prep. We'll message you as soon as it's ready - sometimes that's earlier, but we can't guarantee it in advance.
+    </div>
+
+    <h3>Door Code</h3>
+    <p>Your unique door code will be sent via your booking platform before arrival. It's typically the last 4 digits of your phone number. To unlock:</p>
+    <ol class="steps">
+      <li>Press the <strong>House icon</strong> on the keypad</li>
+      <li>Enter your code</li>
+    </ol>
+    <p>You can also control the lock and thermostat from your phone via the smart home app.</p>
+
+    <h3>Check-Out</h3>
+    <p><strong>No chore list!</strong> Just shut off the fire pit, lights, and lock the door behind you.</p>
+  </div>
+
+  <div class="card" id="parking">
+    <h2><span class="emoji">🚗</span> Parking</h2>
+    <p>Private driveway with 3 spots total.</p>
+    <ul>
+      <li><strong>Your spot:</strong> Pull in and park on the right side</li>
+      <li><strong>Leave space:</strong> 2 spots on the left for the house next door</li>
+    </ul>
+    <div class="highlight-box info">
+      If you've booked both houses, park however works best for your group!
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🏠</span> The Space</h2>
+
+    <h3>Bedroom</h3>
+    <p>Queen bed with warm bedding. Tower fan/heater available.</p>
+
+    <h3>Living Room</h3>
+    <ul>
+      <li>Leather couch (converts to sofa bed)</li>
+      <li>In-wall electric fireplace</li>
+      <li>Smart TV with streaming</li>
+    </ul>
+    <div class="highlight-box warning">
+      <strong>Sofa bed note:</strong> The sofa bed works best for kids. Adults may find it less comfortable for a full night's sleep.
+    </div>
+    <p>Extra sheets for sofa bed are in the front entryway.</p>
+
+    <h3>Kitchen</h3>
+    <p>Full kitchen with Nespresso machine (complimentary pods). Everything needed to cook meals.</p>
+
+    <h3>Bathroom</h3>
+    <p>Shower with multi-setting removable showerhead. Hair dryer and toiletries provided.</p>
+  </div>
+
+  <div class="card" id="climate">
+    <h2><span class="emoji">🌡️</span> Climate Control</h2>
+
+    <h3>Heating</h3>
+    <p>The Nest thermostat controls the baseboards, which take a while to warm up.</p>
+    <div class="highlight-box">
+      <strong>For faster heat:</strong> Use the in-wall electric fireplace or the tower fan/heater in the bedroom.
+    </div>
+
+    <h3>Cooling</h3>
+    <p>Window AC units are installed in the warm months. The bedroom fan can also blow air without heat.</p>
+  </div>
+
+  <div class="card" id="wifi">
+    <h2><span class="emoji">📶</span> Wi-Fi & Remote Work</h2>
+    <p>Fast WiFi (306 Mbps) suitable for video calls.</p>
+
+    <h3>Remote Work Setup</h3>
+    <ul>
+      <li>Computer monitor under the bed</li>
+      <li>Keyboard and mouse in kitchen drawer</li>
+      <li>Ethernet cable available for direct connection</li>
+    </ul>
+    <p>The kitchen table makes a great workspace!</p>
+  </div>
+
+  <div class="card" id="firepit">
+    <h2><span class="emoji">🔥</span> Fire Pit</h2>
+
+    <p>The backyard has a <strong>propane fire pit</strong> facing the woods.</p>
+
+    <h3>Fire Pit Instructions</h3>
+    <ol class="steps">
+      <li>Turn the large knob to "high" AND push it in (you should hear propane flowing)</li>
+      <li>Press the "ignite" button to start</li>
+    </ol>
+
+    <div class="highlight-box info">
+      If it won't light and you hear fuel, there's a lighter inside the cabin you can use.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">📺</span> Entertainment</h2>
+    <ul>
+      <li>Smart TV with streaming stick</li>
+      <li>Amazon Prime Video included</li>
+      <li>Plex app (TV shows and movies)</li>
+    </ul>
+
+    <h3>Electric Fireplace</h3>
+    <p>The in-wall electric fireplace in the living room provides cozy ambiance and supplemental heat.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🐕</span> Pets</h2>
+    <p>Dogs are welcome with a pet fee!</p>
+    <ul>
+      <li>Dog crate under the bed (snaps into shape)</li>
+      <li>Two pet bowls available</li>
+    </ul>
+    <div class="highlight-box warning">
+      Please don't leave pets unattended. No cats (allergy concerns).
+    </div>
+  </div>
+
+  <div class="card" id="rules">
+    <h2><span class="emoji">📋</span> House Rules</h2>
+    <ul>
+      <li><strong>No smoking</strong> inside</li>
+      <li><strong>Dogs welcome</strong> (pet fee applies), no cats</li>
+      <li><strong>No parties</strong></li>
+      <li><strong>Check-out:</strong> 11:00 AM (no chore list!)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🗑️</span> Trash</h2>
+    <p>If you have excess trash, you're welcome to use the bins in the driveway. They're located along the driveway next to the front house.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">📍</span> Local Area</h2>
+    <p>Located in Kingston in the Hudson Valley, just 90 minutes from Manhattan. A car is recommended for exploring the area.</p>
+
+    <h3>Neighborhoods</h3>
+    <ul>
+      <li><strong>Stockade District</strong> - Coffee shops, bookstores, antiquing</li>
+      <li><strong>Rondout</strong> - Waterfront restaurants and activities</li>
+    </ul>
+
+    <h3>Food & Drink</h3>
+    <ul>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Ship+to+Shore+15+West+Strand+Kingston+NY" target="_blank">Ship to Shore</a> - Upscale waterfront dining</li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Savonas+Trattoria+11+Broadway+Kingston+NY" target="_blank">Savona's Trattoria</a> - Italian, great for groups</li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Urban+Fork+288+Wall+St+Kingston+NY" target="_blank">Urban Fork</a> - Fantastic brunch (the Nashville hot chicken!)</li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Kingston+Bread+Bar+43+N+Front+St+Kingston+NY" target="_blank">Kingston Bread + Bar</a> - Coffee shop and bakery</li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Rough+Draft+Bar+Books+82+John+St+Kingston+NY" target="_blank">Rough Draft Bar & Books</a> - Coffee shop and bookstore</li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Keegan+Ales+20+Saint+James+St+Kingston+NY" target="_blank">Keegan Ales</a> - Brewery, dog friendly</li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=TopTaste+Restaurant+446+Hasbrouck+Ave+Kingston+NY" target="_blank">TopTaste</a> - James Beard-recognized Jamaican</li>
+    </ul>
+
+    <h3>Hiking</h3>
+    <ul>
+      <li><a href="https://www.alltrails.com/trail/us/new-york/waterfall-overlook-via-riverside-and-upland-trail-loop" target="_blank">Falling Waters Preserve</a> - 3mi loop, easy, beautiful Hudson views</li>
+      <li><a href="https://www.alltrails.com/trail/us/new-york/meyers-road-and-wintergreen-trail-loop" target="_blank">Meyers Road Loop</a> - 4mi, closest to property, simple and scenic</li>
+      <li><a href="https://www.alltrails.com/trail/us/new-york/katterskill-falls-from-laurel-house-road" target="_blank">Kaaterskill Falls</a> - Iconic 2-tier waterfall (can be crowded, but worth it)</li>
+      <li><a href="https://www.alltrails.com/trail/us/new-york/palenville-overlook-and-sleepy-hollow-loop" target="_blank">Palenville Overlook</a> - 3.2mi, moderate, fewer crowds, stunning views</li>
+    </ul>
+
+    <h3>Sightseeing</h3>
+    <ul>
+      <li><a href="https://opus40.org" target="_blank">Opus 40</a> - Outdoor art experience with easy trails</li>
+    </ul>
+
+    <div class="highlight-box">
+      No city lights in the neighborhood - stunning nighttime star views!
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🎥</span> Cameras</h2>
+    <p>There is one camera at the front door only, to monitor the entrance. It does not point at the driveway or yard. The house next door has a similar camera at its door.</p>
+    <p><strong>No cameras inside the space.</strong></p>
+  </div>
+
+  <div class="card">
+    <h2><span class="emoji">🆘</span> Need Help?</h2>
+    <p>Message us through your booking platform for any questions or concerns.</p>
+    <div class="highlight-box warning">
+      <strong>Emergency:</strong> Dial 911
+    </div>
+  </div>
+
+  <div class="book-direct">
+    <p>Enjoyed your stay? Book direct next time!</p>
+    <a href="https://your-direct-booking-site.com" target="_blank">your-direct-booking-site.com</a>
+  </div>
+
+</div>
+
+
+</body>
+</html>

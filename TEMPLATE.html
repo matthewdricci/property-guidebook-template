@@ -247,6 +247,101 @@
         padding: 24px;
       }
     }
+
+    /* Floating Menu Button */
+    .floating-menu-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      color: #f5c518;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .floating-menu-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .floating-menu-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Navigation Overlay */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.97);
+      z-index: 1001;
+      display: none;
+      flex-direction: column;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .nav-overlay.open {
+      display: flex;
+    }
+
+    .nav-overlay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .nav-overlay-title {
+      color: #f5c518;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .nav-overlay-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 8px;
+      line-height: 1;
+    }
+
+    .nav-overlay-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .nav-overlay-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.25rem;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-overlay-links a:hover {
+      background: rgba(245, 197, 24, 0.15);
+    }
+
+    .nav-emoji {
+      font-size: 1.3rem;
+    }
   </style>
 </head>
 <body>
@@ -426,6 +521,31 @@
   </div>
   -->
 
+</div>
+
+<!-- Floating Menu Button -->
+<button class="floating-menu-btn" onclick="document.getElementById('navOverlay').classList.add('open')" aria-label="Open navigation menu">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</button>
+
+<!-- Navigation Overlay -->
+<div id="navOverlay" class="nav-overlay">
+  <div class="nav-overlay-header">
+    <span class="nav-overlay-title">Jump to...</span>
+    <button class="nav-overlay-close" onclick="document.getElementById('navOverlay').classList.remove('open')" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="nav-overlay-links">
+    <!-- Update these links to match your property's sections -->
+    <a href="#checkin" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🔑</span>Check-In</a>
+    <a href="#parking" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🚗</span>Parking</a>
+    <a href="#wifi" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">📶</span>Wi-Fi</a>
+    <a href="#rules" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">📋</span>House Rules</a>
+    <!-- Add more links as needed for your property -->
+  </nav>
 </div>
 
 </body>

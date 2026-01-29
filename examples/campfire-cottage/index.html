@@ -7,7 +7,8 @@
   <meta property="og:title" content="Campfire Cottage | Guest Guide">
   <meta property="og:description" content="Everything you need for your stay - check-in info, house guide, and local recommendations.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://guide.your-domain.com/campfire-cottage/">
+  <meta property="og:url" content="https://guide.alongthehudsonrentals.com/campfire-cottage/">
+  <meta property="og:image" content="https://guide.alongthehudsonrentals.com/campfire-cottage/images/hero.jpg">
   <style>
     * {
       box-sizing: border-box;
@@ -24,10 +25,29 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+        url('images/hero.jpg') center/cover no-repeat;
       color: white;
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero-wrapper {
+        background-color: #927F6D;
+      }
+
+      .hero {
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 12px;
+      }
     }
 
     .hero h1 {
@@ -288,13 +308,14 @@
 
     .floating-menu-btn:hover {
       transform: scale(1.05);
+      background: #2d2d2d;
     }
 
     .floating-menu-btn:active {
       transform: scale(0.95);
     }
 
-    /* Navigation Overlay */
+    /* Full-screen overlay */
     .nav-overlay {
       position: fixed;
       inset: 0;
@@ -314,7 +335,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .nav-overlay-title {
@@ -324,49 +345,61 @@
     }
 
     .nav-overlay-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid #f5c518;
+      color: #f5c518;
+      font-size: 1.5rem;
       cursor: pointer;
-      padding: 8px;
-      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-overlay-close:hover {
+      background: #f5c518;
+      color: #1a1a1a;
     }
 
     .nav-overlay-links {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
+      flex: 1;
     }
 
     .nav-overlay-links a {
+      display: block;
+      background: #2d2d2d;
       color: white;
-      text-decoration: none;
-      font-size: 1.25rem;
       padding: 16px 20px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.05);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
       transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 12px;
     }
 
     .nav-overlay-links a:hover {
-      background: rgba(245, 197, 24, 0.15);
+      background: #f5c518;
+      color: #1a1a1a;
     }
 
-    .nav-emoji {
-      font-size: 1.3rem;
+    .nav-overlay-links a .nav-emoji {
+      margin-right: 12px;
     }
   </style>
 </head>
 <body>
 
-<header class="hero">
-  <h1>Campfire Cottage</h1>
-  <p class="subtitle">Guest Guide</p>
-</header>
+<div class="hero-wrapper">
+  <header class="hero">
+    <h1>Campfire Cottage</h1>
+    <p class="subtitle">Guest Guide</p>
+  </header>
+</div>
 
 <div class="container">
 
@@ -374,30 +407,30 @@
     <h2><span class="emoji">📖</span> Quick Links</h2>
     <div class="toc">
       <a href="#checkin">Check-In</a>
+      <a href="#checkout">Check-Out</a>
       <a href="#parking">Parking</a>
-      <a href="#firepit">Fire Pit</a>
+      <a href="#rules">House Rules</a>
+      <a href="#space">The Space</a>
       <a href="#climate">Climate</a>
       <a href="#wifi">Wi-Fi</a>
-      <a href="#rules">House Rules</a>
+      <a href="#firepit">Fire Pit</a>
+      <a href="#pets">Pets</a>
+      <a href="#area">Local Area</a>
     </div>
   </div>
 
   <div class="book-direct-top">
     <p>Welcome! This guide has everything you need for your stay.<br>
-    <strong>Best price guarantee:</strong> <a href="https://your-direct-booking-site.com" target="_blank">Book direct</a> for future visits</p>
+    <strong>Best price guarantee:</strong> <a href="https://kingston.staycation.igms.com" target="_blank">Book direct</a> for future visits</p>
   </div>
 
   <div class="card" id="checkin">
-    <h2><span class="emoji">🔑</span> Check-In & Check-Out</h2>
+    <h2><span class="emoji">🔑</span> Check-In</h2>
 
     <table class="info-table">
       <tr>
         <td>Check-in</td>
         <td>4:00 PM</td>
-      </tr>
-      <tr>
-        <td>Check-out</td>
-        <td>11:00 AM</td>
       </tr>
     </table>
 
@@ -411,10 +444,28 @@
       <li>Press the <strong>House icon</strong> on the keypad</li>
       <li>Enter your code</li>
     </ol>
-    <p>You can also control the lock and thermostat from your phone via the smart home app.</p>
+  </div>
 
-    <h3>Check-Out</h3>
-    <p><strong>No chore list!</strong> Just shut off the fire pit, lights, and lock the door behind you.</p>
+  <div class="card" id="checkout">
+    <h2><span class="emoji">👋</span> Check-Out</h2>
+
+    <table class="info-table">
+      <tr>
+        <td>Check-out</td>
+        <td>11:00 AM</td>
+      </tr>
+    </table>
+
+    <p>You are my guest - you do not have a "chore list" like some other properties may request. My only ask:</p>
+    <ol class="steps">
+      <li>Shut off the fire pit</li>
+      <li>Shut off the electric fireplace</li>
+      <li>Turn off the lights</li>
+      <li>Lock the door behind you</li>
+    </ol>
+    <div class="highlight-box info">
+      <strong>Beds:</strong> Please do not strip the beds - we take care of that for you.
+    </div>
   </div>
 
   <div class="card" id="parking">
@@ -425,11 +476,11 @@
       <li><strong>Leave space:</strong> 2 spots on the left for the house next door</li>
     </ul>
     <div class="highlight-box info">
-      If you've booked both houses, park however works best for your group!
+      If you've booked both houses (Double the Fun), park however works best for your group!
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="space">
     <h2><span class="emoji">🏠</span> The Space</h2>
 
     <h3>Bedroom</h3>
@@ -464,6 +515,9 @@
 
     <h3>Cooling</h3>
     <p>Window AC units are installed in the warm months. The bedroom fan can also blow air without heat.</p>
+
+    <h3>Winter</h3>
+    <p>The driveway is plowed automatically after storms. Shovels and salt are available near the entry if needed.</p>
   </div>
 
   <div class="card" id="wifi">
@@ -507,7 +561,7 @@
     <p>The in-wall electric fireplace in the living room provides cozy ambiance and supplemental heat.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="pets">
     <h2><span class="emoji">🐕</span> Pets</h2>
     <p>Dogs are welcome with a pet fee!</p>
     <ul>
@@ -534,7 +588,7 @@
     <p>If you have excess trash, you're welcome to use the bins in the driveway. They're located along the driveway next to the front house.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="area">
     <h2><span class="emoji">📍</span> Local Area</h2>
     <p>Located in Kingston in the Hudson Valley, just 90 minutes from Manhattan. A car is recommended for exploring the area.</p>
 
@@ -589,7 +643,7 @@
 
   <div class="book-direct">
     <p>Enjoyed your stay? Book direct next time!</p>
-    <a href="https://your-direct-booking-site.com" target="_blank">your-direct-booking-site.com</a>
+    <a href="https://kingston.staycation.igms.com" target="_blank">kingston.staycation.igms.com</a>
   </div>
 
 </div>
@@ -611,11 +665,15 @@
   </div>
   <nav class="nav-overlay-links">
     <a href="#checkin" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🔑</span>Check-In</a>
+    <a href="#checkout" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">👋</span>Check-Out</a>
     <a href="#parking" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🚗</span>Parking</a>
-    <a href="#firepit" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🔥</span>Fire Pit</a>
+    <a href="#rules" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">📋</span>House Rules</a>
+    <a href="#space" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🏠</span>The Space</a>
     <a href="#climate" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🌡️</span>Climate</a>
     <a href="#wifi" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">📶</span>Wi-Fi</a>
-    <a href="#rules" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">📋</span>House Rules</a>
+    <a href="#firepit" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🔥</span>Fire Pit</a>
+    <a href="#pets" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">🐕</span>Pets</a>
+    <a href="#area" onclick="document.getElementById('navOverlay').classList.remove('open')"><span class="nav-emoji">📍</span>Local Area</a>
   </nav>
 </div>
 

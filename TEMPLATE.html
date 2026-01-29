@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YOUR PROPERTY NAME | Guest Guide</title>
+  <!--
+    OPEN GRAPH TAGS - These control how links appear in iMessage, Slack, Facebook, etc.
+    Update these with your property info and domain.
+  -->
   <meta property="og:title" content="YOUR PROPERTY NAME | Guest Guide">
   <meta property="og:description" content="Everything you need for your stay - check-in info, house guide, and local recommendations.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://your-domain.com/your-property/">
+  <!--
+    HERO IMAGE FOR LINK PREVIEWS
+    Uncomment and update this line to show your hero image in iMessage/Slack previews.
+    The image should be at least 1200x630px for best results.
+
+  <meta property="og:image" content="https://your-domain.com/your-property/images/hero.jpg">
+  -->
   <style>
     * {
       box-sizing: border-box;
@@ -23,8 +34,35 @@
       padding-bottom: 40px;
     }
 
+    /* ==========================================================================
+       HERO SECTION
+
+       DEFAULT: Simple dark gradient background (no image needed)
+       UPGRADE: Add a cover photo for a more premium look
+
+       To add a hero image:
+       1. Save your image as images/hero.jpg in your property folder
+       2. Uncomment the .hero background line below that references the image
+       3. Comment out or delete the simple gradient line
+       4. Uncomment the .hero-wrapper and desktop .hero styles
+       5. Change #6B7280 to a color extracted from your image (see README)
+       ========================================================================== */
+
     .hero {
+      /* Simple gradient (default - no image needed) */
       background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+
+      /* Hero image with overlay (uncomment to enable)
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+        url('images/hero.jpg') center/cover no-repeat;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      */
+
       color: white;
       padding: 40px 20px;
       text-align: center;
@@ -40,6 +78,22 @@
       font-size: 1rem;
       opacity: 0.9;
     }
+
+    /* Desktop hero wrapper - gives colored background behind constrained hero
+       Uncomment this block when using a hero image */
+    /*
+    @media (min-width: 768px) {
+      .hero-wrapper {
+        background-color: #6B7280;  /* CHANGE THIS to match your hero image */
+      }
+
+      .hero {
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 12px;
+      }
+    }
+    */
 
     .container {
       max-width: 600px;
@@ -271,13 +325,14 @@
 
     .floating-menu-btn:hover {
       transform: scale(1.05);
+      background: #2d2d2d;
     }
 
     .floating-menu-btn:active {
       transform: scale(0.95);
     }
 
-    /* Navigation Overlay */
+    /* Full-screen overlay */
     .nav-overlay {
       position: fixed;
       inset: 0;
@@ -297,7 +352,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .nav-overlay-title {
@@ -307,49 +362,62 @@
     }
 
     .nav-overlay-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid #f5c518;
+      color: #f5c518;
+      font-size: 1.5rem;
       cursor: pointer;
-      padding: 8px;
-      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-overlay-close:hover {
+      background: #f5c518;
+      color: #1a1a1a;
     }
 
     .nav-overlay-links {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
+      flex: 1;
     }
 
     .nav-overlay-links a {
+      display: block;
+      background: #2d2d2d;
       color: white;
-      text-decoration: none;
-      font-size: 1.25rem;
       padding: 16px 20px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.05);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
       transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 12px;
     }
 
     .nav-overlay-links a:hover {
-      background: rgba(245, 197, 24, 0.15);
+      background: #f5c518;
+      color: #1a1a1a;
     }
 
-    .nav-emoji {
-      font-size: 1.3rem;
+    .nav-overlay-links a .nav-emoji {
+      margin-right: 12px;
     }
   </style>
 </head>
 <body>
 
-<header class="hero">
-  <h1>YOUR PROPERTY NAME</h1>
-  <p class="subtitle">Guest Guide</p>
-</header>
+<!-- Hero wrapper - enables colored background on desktop when using hero image -->
+<div class="hero-wrapper">
+  <header class="hero">
+    <h1>YOUR PROPERTY NAME</h1>
+    <p class="subtitle">Guest Guide</p>
+  </header>
+</div>
 
 <div class="container">
 
